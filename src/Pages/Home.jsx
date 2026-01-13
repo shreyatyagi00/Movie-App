@@ -27,33 +27,27 @@ const Home = ({ favorites, addToFavorites, removeFromFavorites }) => {
   const loadDefaultMovies = async () => {
   setLoading(true);
 
-  const keywords = ["batman", "avengers", "iron man"];
-  const movieMap = new Map();  
+  const keywords = ["batman", "avengers", "iron man", "harry potter"];
+  const movieMap = new Map();
 
   for (let keyword of keywords) {
-    for (let page = 1; page <= 2; page++) {
-      const res = await fetch(
-        `https://www.omdbapi.com/?apikey=${
-          import.meta.env.VITE_OMDB_API_KEY
-        }&s=${keyword}&page=${page}`
-      );
-      const data = await res.json();
+    const res = await fetch(
+      `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_API_KEY}&s=${keyword}&page=1`
+    );
+    const data = await res.json();
 
-      if (data.Search) {
-        data.Search.forEach((movie) => {
-          movieMap.set(movie.imdbID, movie); 
-        });
-      }
-
-      if (movieMap.size >= 20) break;
+    if (data.Search) {
+      data.Search.slice(0, 4).forEach((movie) => {
+        movieMap.set(movie.imdbID, movie);
+      });
     }
-
-    if (movieMap.size >= 20) break;
   }
 
-  setMovies(Array.from(movieMap.values()).slice(0, 20));
+  // 🔥 EXACT 20 (4 keywords × 5 movies)
+  setMovies(Array.from(movieMap.values()));
   setLoading(false);
 };
+
 
 ;
 
