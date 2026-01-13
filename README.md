@@ -25,5 +25,4 @@ MovieApp is a fully functional movie browsing web application built using React 
 
 
 # Live Demo
-
-https://movie-app-xi-peach.vercel.app/
+ https://movieappsin.netlify.app/
