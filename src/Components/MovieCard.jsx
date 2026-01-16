@@ -49,7 +49,7 @@ const MovieCard = ({
       />
 
       
-      <p style={{ color: "#666" }}>{movie.Year}</p>
+       
 
       {isFavorite ? (
         <button

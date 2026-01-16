@@ -13,7 +13,7 @@ const Home = ({ favorites, addToFavorites, removeFromFavorites }) => {
 
 
 
-  const defaultKeywords = ["batman", "avengers", "iron man", "harry potter"];
+   
 
   const fetchMovies = async (term) => {
     setLoading(true);
@@ -43,7 +43,7 @@ const Home = ({ favorites, addToFavorites, removeFromFavorites }) => {
     }
   }
 
-  // 🔥 EXACT 20 (4 keywords × 5 movies)
+   
   setMovies(Array.from(movieMap.values()));
   setLoading(false);
 };
